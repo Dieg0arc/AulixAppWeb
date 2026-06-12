@@ -1,7 +1,7 @@
 import { useAuthStore } from '~/stores/auth'
 
 /** Rutas accesibles sin sesión. */
-const PUBLIC_ROUTES = ['/login', '/register']
+const PUBLIC_ROUTES = ['/login', '/register', '/galeria']
 
 /**
  * Protege toda la app: si no hay sesión y la ruta no es pública,
