@@ -14,7 +14,7 @@ withDefaults(defineProps<{
 <template>
   <div
     :class="[
-      'rounded-xl border border-arena bg-surface shadow-sm',
+      'rounded-xl border border-default bg-surface shadow-sm',
       padded ? 'p-5' : '',
     ]"
   >

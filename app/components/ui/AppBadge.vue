@@ -15,8 +15,8 @@ const toneClasses: Record<Tone, string> = {
   ok: 'bg-ok/10 text-ok',
   warn: 'bg-warn/10 text-warn',
   danger: 'bg-danger/10 text-danger',
-  neutral: 'bg-arena text-muted',
-  info: 'bg-cielo text-cobalto',
+  neutral: 'bg-subtle text-faint',
+  info: 'bg-accent-soft text-cobalto',
 }
 </script>
 

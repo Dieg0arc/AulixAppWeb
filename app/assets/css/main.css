@@ -2,7 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===========================================================================
+   Tokens semánticos de UI — definidos como canales RGB sueltos para que
+   Tailwind genere rgb(var(--token) / <alpha-value>) y el modificador de
+   opacidad (bg-surface/50) siga funcionando. NO usar hex aquí.
+
+   Solo migran a variable los tokens cuyo valor DEBE cambiar entre temas.
+   Los colores de marca (cobalto, cobre, ok/danger/warn, rol.*) NO viven
+   aquí: son constantes físicas en tailwind.config.ts.
+   =========================================================================== */
+
+:root {
+  --canvas:       250 248 243;  /* lienzo  #FAF8F3 */
+  --surface:      255 255 255;  /* blanco  #FFFFFF */
+  --subtle:       243 237 222;  /* arena   #F3EDDE */
+  --text-base:     15  39  66;  /* tinta   #0F2742 */
+  --text-muted:   107 126 150;  /* muted   #6B7E96 */
+  --accent-soft:  220 231 245;  /* cielo   #DCE7F5 */
+  --border:       230 222 205;  /* derivado de arena, borde sutil claro */
+  --primary:       44  91 168;  /* cobalto #2C5BA8 — botón primario claro */
+  --primary-fg:   255 255 255;  /* texto sobre primario (claro) */
+}
+
+.dark {
+  --canvas:        15  23  36;  /* casi-negro azulado, coherente con tinta */
+  --surface:       25  35  52;  /* superficie elevada por luminosidad */
+  --subtle:        38  50  71;  /* zonas secundarias / hover */
+  --text-base:    226 232 240;  /* gris muy claro, no blanco puro */
+  --text-muted:   148 163 184;  /* tenue con más luminosidad para contraste */
+  --accent-soft:   30  58  95;  /* cobalto apagado para chips/hover */
+  --border:        51  65  85;  /* borde visible sobre surface sin gritar */
+  --primary:      143 168 212;  /* cobalto-lavanda claro (del mockup dark) */
+  --primary-fg:    15  23  36;  /* texto oscuro sobre primario claro */
+}
+
 /* Base global de Aulix */
 body {
-  @apply bg-lienzo text-tinta font-sans;
+  @apply bg-canvas text-ink font-sans;
 }
