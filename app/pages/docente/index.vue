@@ -78,6 +78,6 @@ function onAcceso(evento: string) {
       @abrir="onAbrirSesion"
     />
 
-    <AccesosRapidos v-if="sesionActiva" @seleccionar="onAcceso" />
+    <AccesosRapidos @seleccionar="onAcceso" />
   </div>
 </template>
