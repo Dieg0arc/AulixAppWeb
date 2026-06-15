@@ -24,12 +24,21 @@ const saludo = computed(() => {
 })
 
 function onAbrirSesion() {
-  if (proxima.value) router.push(`/docente/sesion/${proxima.value.id}`)
+  if (proxima.value) router.push(`/docente/sesion/${proxima.value.id}/abrir`)
 }
 
+const sesionActiva = computed(() => proxima.value?.estado === "abierta")
+
 function onAcceso(evento: string) {
-  // Los destinos reales se conectan cuando existan esas rutas (sub-pasos siguientes).
-  console.log('Acceso rápido:', evento)
+  if (!proxima.value) return
+  const base = `/docente/sesion/${proxima.value.id}`
+  const rutas: Record<string, string> = {
+    qr: `${base}/qr`,
+    codigo: `${base}/codigo`,
+    incidencia: `${base}/incidencia`,
+    evidencias: `${base}/evidencias`,
+  }
+  if (rutas[evento]) router.push(rutas[evento])
 }
 </script>
 
@@ -69,6 +78,6 @@ function onAcceso(evento: string) {
       @abrir="onAbrirSesion"
     />
 
-    <AccesosRapidos @seleccionar="onAcceso" />
+    <AccesosRapidos v-if="sesionActiva" @seleccionar="onAcceso" />
   </div>
 </template>
