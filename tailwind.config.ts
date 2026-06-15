@@ -1,6 +1,9 @@
 import type { Config } from 'tailwindcss'
 
+const withOpacity = (variable: string) => `rgb(var(${variable}) / <alpha-value>)`
+
 export default {
+  darkMode: 'class',
   content: [
     './app/**/*.{vue,js,ts}',
     './components/**/*.{vue,js,ts}',
@@ -11,14 +14,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        lienzo:  '#FAF8F3',  // fondo
-        surface: '#FFFFFF',  // superficies
-        arena:   '#F3EDDE',  // secundario
-        cobalto: '#2C5BA8',  // primario
+        // --- Tokens semánticos de UI (cambian por tema, leen CSS vars) ---
+        canvas:       withOpacity('--canvas'),
+        surface:      withOpacity('--surface'),
+        subtle:       withOpacity('--subtle'),
+        ink:          withOpacity('--text-base'),
+        faint:        withOpacity('--text-muted'),
+        'accent-soft': withOpacity('--accent-soft'),
+        default:      withOpacity('--border'),      // usar como border-default
+        primary:      withOpacity('--primary'),
+        'on-primary': withOpacity('--primary-fg'),
+
+        // --- Colores de marca (físicos, constantes en ambos temas) ---
+        cobalto: '#2C5BA8',  // acento de marca
         cobre:   '#B36A2E',  // acento
-        cielo:   '#DCE7F5',  // chips / hover
-        tinta:   '#0F2742',  // texto
-        muted:   '#6B7E96',
         ok:      '#16A34A',
         danger:  '#DC2626',
         warn:    '#D97706',

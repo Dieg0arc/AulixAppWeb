@@ -25,10 +25,10 @@ const props = withDefaults(defineProps<{
 })
 
 const variantClasses: Record<Variant, string> = {
-  primary: 'bg-cobalto text-white hover:bg-cobalto/90',
-  secondary: 'bg-arena text-tinta hover:bg-cielo',
+  primary: 'bg-primary text-on-primary hover:bg-primary/90',
+  secondary: 'bg-subtle text-ink hover:bg-accent-soft',
   danger: 'bg-danger text-white hover:bg-danger/90',
-  ghost: 'bg-transparent text-cobalto hover:bg-cielo',
+  ghost: 'bg-transparent text-cobalto hover:bg-accent-soft',
 }
 
 const sizeClasses: Record<Size, string> = {
