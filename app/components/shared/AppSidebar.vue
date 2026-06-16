@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { NavItem } from '~/lib/constants/nav'
+import { ROLE_LABEL } from '~/lib/constants/roles'
+import { useAuthStore } from '~/stores/auth'
 import UserMenu from './UserMenu.vue'
 
 defineProps<{
@@ -7,6 +9,11 @@ defineProps<{
 }>()
 
 const route = useRoute()
+const auth = useAuthStore()
+
+const rolLabel = computed(() =>
+  auth.rol ? ROLE_LABEL[auth.rol].toUpperCase() : 'AULIX',
+)
 
 function esActiva(to: string): boolean {
   // exacta para la home del rol; prefijo para las subrutas
@@ -20,7 +27,7 @@ function esActiva(to: string): boolean {
       <div class="h-8 w-8 rotate-45 rounded-md bg-primary" />
       <div class="-space-y-0.5">
         <p class="text-lg font-bold leading-none text-ink">Aulix</p>
-        <p class="text-xs font-medium tracking-wide text-faint">DOCENTE</p>
+        <p class="text-xs font-medium tracking-wide text-faint">{{ rolLabel }}</p>
       </div>
     </div>
 

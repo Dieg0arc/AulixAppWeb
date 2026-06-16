@@ -21,7 +21,11 @@ export interface Laboratorio {
   disponibilidad: boolean
   capacidad: number
   estado: string
+  programaId?: string
 }
+
+// Auxiliar: estados posibles de un equipo (Equipo.estado como union tipada)
+export type EquipoEstado = 'disponible' | 'prestado' | 'reparacion' | 'mantenimiento'
 
 export interface Equipo {
   id: string
@@ -102,7 +106,7 @@ export interface Prestamo {
   equipoId: string
   solicitanteId: string
   auxiliarId: string
-  sesionId: string
+  sesionId: string | null
   fechaPrestamo: string
   fechaDevolucion: string | null
   estado: PrestamoEstado

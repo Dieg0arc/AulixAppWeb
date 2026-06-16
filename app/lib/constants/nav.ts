@@ -1,4 +1,4 @@
-import { Home, Calendar, BarChart3, User } from 'lucide-vue-next'
+import { Home, Calendar, BarChart3, User, Package, History } from 'lucide-vue-next'
 import type { Component } from 'vue'
 import { ROLE_HOME, type Role } from './roles'
 
@@ -21,6 +21,11 @@ export const NAV_ITEMS: Record<Role, NavItem[]> = {
     { label: 'Perfil', to: `${ROLE_HOME.docente}/perfil`, icon: User },
   ],
   estudiante: [],
-  auxiliar: [],
+  auxiliar: [
+    { label: 'Inicio', to: ROLE_HOME.auxiliar, icon: Home },
+    { label: 'Inventario', to: `${ROLE_HOME.auxiliar}/inventario`, icon: Package },
+    { label: 'Historial', to: `${ROLE_HOME.auxiliar}/historial`, icon: History },
+    { label: 'Perfil', to: `${ROLE_HOME.auxiliar}/perfil`, icon: User },
+  ],
   soporte: [],
 }
