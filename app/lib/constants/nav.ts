@@ -20,7 +20,12 @@ export const NAV_ITEMS: Record<Role, NavItem[]> = {
     { label: 'Indicadores', to: `${ROLE_HOME.docente}/indicadores`, icon: BarChart3 },
     { label: 'Perfil', to: `${ROLE_HOME.docente}/perfil`, icon: User },
   ],
-  estudiante: [],
+  estudiante: [
+    { label: 'Mis prácticas', to: ROLE_HOME.estudiante, icon: Home },
+    { label: 'Agenda', to: `${ROLE_HOME.estudiante}/agenda`, icon: Calendar },
+    { label: 'Historial', to: `${ROLE_HOME.estudiante}/historial`, icon: History },
+    { label: 'Perfil', to: `${ROLE_HOME.estudiante}/perfil`, icon: User },
+  ],
   auxiliar: [
     { label: 'Inicio', to: ROLE_HOME.auxiliar, icon: Home },
     { label: 'Inventario', to: `${ROLE_HOME.auxiliar}/inventario`, icon: Package },
